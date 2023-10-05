@@ -1,9 +1,13 @@
-var express = require('express');
-var router = express.Router();
+import express from "express";
+import ModsController from "../controllers/ModsController";
+import UsersController from "../controllers/UsersController";
+import AdminsController from "../controllers/AdminsController";
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+const router = express.Router();
 
-module.exports = router;
+router.post('/login/mod', ModsController.loginAsMod);
+router.post('/login/admin', AdminsController.loginAdmin);
+router.post('/login', UsersController.loginUser);
+router.post('/register', UsersController.registerUser);
+
+export default router;

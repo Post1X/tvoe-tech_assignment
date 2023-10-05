@@ -1,1 +1,1 @@
-
+Вставьте содержимое swagger.output.json в https://editor.swagger.io/ для получения мини-документации.

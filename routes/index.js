@@ -1,9 +1,13 @@
-var express = require('express');
-var router = express.Router();
+import express from "express";
+import users from "./users";
+import posts from "./posts";
+import admin from "./admin";
+import authorization from "../middlewares/authorization";
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const router = express.Router();
 
-module.exports = router;
+router.use('/users', authorization, users)
+router.use('/posts', authorization, posts)
+router.use('/admin', authorization, admin)
+
+export default router;
